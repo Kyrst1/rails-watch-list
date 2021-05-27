@@ -1,0 +1,19 @@
+<h2><%= @list.name %></h2>
+<ul>
+<% @list.bookmarks.each do |bookmark| %>
+<li> <%= bookmark.movie.title%>
+      <%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Delete #{bookmark.movie.title}?" } do %>
+      <i class="fa fa-trash-o" aria-hidden="true">delete</i>
+      <% end %>
+      <%= image_tag bookmark.movie.full_url, width: 100%>
+</li>
+    <%end%>
+</ul>
+
+
+<%= link_to 'Back', lists_path%>
+
+<%= link_to new_list_bookmark_path(@list) do %>
+  <i class="fa fa-plus"></i> Add a new movie
+<% end %>
+
