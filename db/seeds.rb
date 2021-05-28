@@ -30,7 +30,7 @@ lists = []
   list = List.new(
     name: Faker::Music.genre
   )
-  list.save!
+  list.save
   lists << list
 end
 
